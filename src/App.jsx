@@ -10,7 +10,7 @@ import AllBlogs from "./pages/allBlogs/AllBlogs";
 import CreateBlogPage from "./pages/createBlogPage.jsx/CreateBlogPage.jsx";
 
 function App() {
-  console.log("Testing");
+  console.log("Testing 1111");
   return (
     <Router>
       <Routes>
