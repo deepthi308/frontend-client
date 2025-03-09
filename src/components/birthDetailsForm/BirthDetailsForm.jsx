@@ -21,6 +21,9 @@ export default function BirthDetailsForm() {
   const [base64Image, setBase64Image] = useState("");
   const [avatar, setAvatar] = useState("");
 
+  console.log("Avatar", avatar);
+  console.log("Image", base64Image);
+
   const fileUploadRef = useRef();
 
   const handleInputChange = (target) => {
@@ -70,36 +73,56 @@ export default function BirthDetailsForm() {
     ) {
       toast.error("Please enter all the required fields.");
     } else {
-      const CLOUD_NAME = "drfzvtxg9";
-      const UPLOAD_PRESET = "kyloimtt";
+      if (base64Image) {
+        const CLOUD_NAME = "drfzvtxg9";
+        const UPLOAD_PRESET = "kyloimtt";
 
-      const formData = new FormData();
-      formData.append("upload_preset", UPLOAD_PRESET);
-      formData.append("file", profilePicture);
-
-      axios
-        .post(
-          `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
-          formData
-        )
-        .then((uploadResponse) => {
-          const imageUrl = uploadResponse.data.secure_url;
-          axios
-            .post("/astro-mandeep/api/v1/create-user", {
-              name,
-              gender,
-              birthDate,
-              birthTime,
-              location,
-              mobileNumber,
-              bio,
-              profilePicture: imageUrl,
-            })
-            .then((res) => {
-              const { message } = res.data;
-              toast.success(message);
-            });
-        });
+        const formData = new FormData();
+        formData.append("upload_preset", UPLOAD_PRESET);
+        formData.append("file", profilePicture);
+        console.log("Profile", profilePicture);
+        axios
+          .post(
+            `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+            formData
+          )
+          .then((uploadResponse) => {
+            const imageUrl = uploadResponse.data.secure_url;
+            axios
+              .post("/astro-mandeep/api/v1/create-user", {
+                name,
+                gender,
+                birthDate,
+                birthTime,
+                location,
+                mobileNumber,
+                bio,
+                profilePicture: imageUrl,
+              })
+              .then((res) => {
+                const { message } = res.data;
+                console.log(res.data);
+                toast.success(message);
+              });
+          });
+      } else {
+        axios
+          .post("/astro-mandeep/api/v1/create-user", {
+            name,
+            gender,
+            birthDate,
+            birthTime,
+            location,
+            mobileNumber,
+            bio,
+            profilePicture: avatar,
+          })
+          .then((res) => {
+            const { message } = res.data;
+            console.log(res.data);
+            toast.success(message);
+          });
+      }
     }
   };
 

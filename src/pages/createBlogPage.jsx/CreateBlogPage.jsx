@@ -1,68 +1,69 @@
+import React, { useState } from "react";
+import ReactQuill from "react-quill"; // React wrapper for Quill
+import "react-quill/dist/quill.snow.css"; // Import styles for the snow theme
 import "./createBlogPage.css";
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-
-export default function CreateBlogPage() {
+const CreateBlogPage = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
   };
 
   const handleContentChange = (value) => {
     setContent(value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Blog submitted", { title, content });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Blog Submitted with Title:", title);
+    console.log("Blog Content:", content);
+    // Handle form submission logic here (e.g., send data to the backend)
   };
 
   return (
     <div className="create-blog-page">
-      <div className="navbar">
-        <Link to="/" className="back-to-home">
-          Back to Home
-        </Link>
-      </div>
+      <h1 className="title">Create Blog</h1>
+      <form className="create-blog-form" onSubmit={handleSubmit}>
+        <section className="create-blog-form-group">
+          <label htmlFor="blog-title-input">Blog Title:</label>
+          <input
+            id="blog-title-input"
+            type="text"
+            value={title}
+            onChange={handleTitleChange}
+            className="title-input"
+          />
+        </section>
 
-      <div className="create-blog-form">
-        <h2 className="page-title">Create Your Blog</h2>
+        <div className="editor-container">
+          <ReactQuill
+            value={content}
+            onChange={handleContentChange}
+            modules={{
+              toolbar: [
+                [{ header: "1" }, { header: "2" }, { font: [] }],
+                [{ list: "ordered" }, { list: "bullet" }],
+                [{ align: [] }],
+                ["bold", "italic", "underline"],
+                ["link", "image"],
+                ["blockquote", "code-block"],
+                [{ script: "sub" }, { script: "super" }],
+                [{ indent: "-1" }, { indent: "+1" }],
+                [{ direction: "rtl" }],
+              ],
+            }}
+            placeholder="Write your content here..."
+          />
+        </div>
 
-        <form onSubmit={handleSubmit} className="blog-form">
-          <div className="form-group">
-            <label htmlFor="title">Blog Title</label>
-            <input
-              type="text"
-              id="title"
-              className="title-input"
-              value={title}
-              onChange={handleTitleChange}
-              placeholder="Enter your blog title"
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="content">Blog Content</label>
-            <ReactQuill
-              value={content}
-              onChange={handleContentChange}
-              className="quill-editor"
-              theme="snow"
-              placeholder="Start writing your blog here..."
-            />
-          </div>
-
-          <button type="submit" className="submit-button">
-            Submit Blog
-          </button>
-        </form>
-      </div>
+        <button type="submit" className="submit-btn">
+          Submit Blog
+        </button>
+      </form>
     </div>
   );
-}
+};
+
+export default CreateBlogPage;

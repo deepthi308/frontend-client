@@ -92,7 +92,7 @@
 .downloads {
   display: flex;
   align-items: flex-end;
-  font-size: 13px;
+  font-size: 12px;
   gap: 3px;
   cursor: pointer;
 }
