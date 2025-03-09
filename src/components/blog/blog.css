@@ -91,9 +91,9 @@
 .shares,
 .downloads {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   font-size: 13px;
-  gap: 1px;
+  gap: 3px;
   cursor: pointer;
 }
 

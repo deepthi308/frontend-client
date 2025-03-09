@@ -2,13 +2,12 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/homePage/HomePage";
 import LoginPage from "./pages/loginPage/LoginPage";
-import SignUpPage from "./pages/signUpPage/SignUpPage";
 import Layout from "./layout/Layout";
-import Blogs from "./pages/blogs/Blogs";
 import KundliMatching from "./pages/kundliMatching/KundliMatching";
 import FreeKundli from "./pages/freeKundli/FreeKundli";
-import BirthDetailsPage from "./pages/birthDetailsPage/birthDetailsPage";
+import BirthDetailsPage from "./pages/birthDetailsPage/BirthDetailsPage.jsx";
 import AllBlogs from "./pages/allBlogs/AllBlogs";
+import CreateBlogPage from "./pages/createBlogPage.jsx/createBlogPage";
 
 function App() {
   console.log("Testing");
@@ -60,6 +59,14 @@ function App() {
           element={
             <Layout>
               <AllBlogs />
+            </Layout>
+          }
+        />
+        <Route
+          path="/createBlog"
+          element={
+            <Layout>
+              <CreateBlogPage />
             </Layout>
           }
         />

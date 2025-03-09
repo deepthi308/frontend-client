@@ -5,6 +5,7 @@ import blogsCategories from "../../data/blogsCategories.json";
 import BlogCategories from "../../components/blogCategories/BlogCategories";
 import { MdNoteAdd } from "react-icons/md";
 import AllPageBlog from "../../components/allPageBlog/AllPageBlog";
+import { Link } from "react-router-dom";
 
 export default function AllBlogs() {
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function AllBlogs() {
         <section className="category-dropdown-container">
           <label htmlFor="category-dropdown">Category:</label>
           <select id="category-dropdown" className="category-dropdown">
-            {blogsCategories.map((blogCat, index) => {
+            {blogsCategories.map((blogCat) => {
               return (
                 <option
                   key={blogCat.id}
@@ -37,10 +38,10 @@ export default function AllBlogs() {
       </section>
       <section className="blogs-three-in-one">
         <section className="blogs-categories">
-          <button className="create-blog">
+          <Link to={"/createBlog"} className="create-blog">
             <MdNoteAdd size={20} color="#D9D9D9" />
             <p>Create Blog</p>
-          </button>
+          </Link>
           <h2 className="category-title sub-title">Categories</h2>
           <BlogCategories blogsCategories={blogsCategories} />
         </section>
