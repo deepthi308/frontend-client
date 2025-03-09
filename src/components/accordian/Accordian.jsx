@@ -14,6 +14,8 @@ export default function Accordian() {
     }
   };
 
+  // Testing
+
   return (
     <section className="accordian">
       {faqs.map((faq) => {
