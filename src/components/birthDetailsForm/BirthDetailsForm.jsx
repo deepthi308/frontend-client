@@ -1,28 +1,32 @@
 import { useRef, useState } from "react";
-// import { v2 as cloudinary } from "cloudinary";
 import "./birthDetailsForm.css";
-// import human1 from "/images/profilePicture.jpg";
 import { MdFileUpload } from "react-icons/md";
 import { toast } from "react-toastify";
 import axios from "axios";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import { useNavigate } from "react-router-dom";
 
 export default function BirthDetailsForm() {
+  const { getItem, setItem } = useLocalStorage();
   const [userDetails, setUserDetails] = useState({
     name: "",
     gender: "female",
     birthDate: "2000-01-01",
     birthTime: "12:00",
     location: "",
-    mobileNumber: "",
+    mobileNumber: getItem("mobileNumber", "")
+      ? getItem("mobileNumber", "")
+      : "",
     bio: "Hey There, I am using Astro ManDeepology!",
     profilePicture: "",
   });
 
   const [base64Image, setBase64Image] = useState("");
   const [avatar, setAvatar] = useState("");
+  const navigate = useNavigate();
 
-  console.log("Avatar", avatar);
-  console.log("Image", base64Image);
+  // console.log("Avatar", avatar);
+  // console.log("Image", base64Image);
 
   const fileUploadRef = useRef();
 
@@ -100,12 +104,14 @@ export default function BirthDetailsForm() {
                 profilePicture: imageUrl,
               })
               .then((res) => {
-                const { message } = res.data;
+                const { message, user } = res.data;
                 console.log(res.data);
-                toast.success(message);
+                // toast.success(message);
+                setItem("user", JSON.stringify(user));
+                navigate("/mainPage");
               });
           });
-      } else {
+      } else if (avatar) {
         axios
           .post("/astro-mandeep/api/v1/create-user", {
             name,
@@ -118,10 +124,14 @@ export default function BirthDetailsForm() {
             profilePicture: avatar,
           })
           .then((res) => {
-            const { message } = res.data;
+            const { message, user } = res.data;
             console.log(res.data);
-            toast.success(message);
+            // toast.success(message);
+            setItem("user", JSON.stringify(user));
+            navigate("/mainPage");
           });
+      } else if (!avatar && !base64Image) {
+        toast.error("Please upload profile picture or choose an avatar.");
       }
     }
   };
@@ -225,8 +235,9 @@ export default function BirthDetailsForm() {
             <label htmlFor="mobileNumber">Mobile No:</label>
             <input
               type="text"
-              value={userDetails.mobileNumber}
               id="mobileNumber"
+              disabled={true}
+              value={userDetails.mobileNumber}
               onChange={({ target }) => handleInputChange(target)}
             />
           </section>

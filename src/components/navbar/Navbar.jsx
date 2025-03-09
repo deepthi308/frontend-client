@@ -5,10 +5,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { CgClose } from "react-icons/cg";
 import BrandLogo from "/images/astroManDeepologyLogo.png";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 export default function Navbar() {
   const [isBurgerMenuClicked, setIsBurgerMenuClicked] = useState(false);
   const navigate = useNavigate();
+  const { removeItem } = useLocalStorage();
 
   const handleBurgerMenuClick = () => {
     let clickedState = isBurgerMenuClicked === true ? false : true;
@@ -16,6 +18,9 @@ export default function Navbar() {
   };
 
   const handleLogin = () => {
+    removeItem("otp");
+    removeItem("mobileNumber");
+    removeItem("user");
     navigate("/login");
   };
 

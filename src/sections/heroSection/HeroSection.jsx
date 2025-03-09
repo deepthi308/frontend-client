@@ -1,8 +1,19 @@
 import "./heroSection.css";
 import HEROIMAGE from "../../assets/mainImage.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 export default function HeroSection() {
+  const { removeItem } = useLocalStorage();
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    removeItem("otp");
+    removeItem("mobileNumber");
+    removeItem("user");
+    navigate("/login");
+  };
+
   return (
     <section className="hero">
       <section className="left">
@@ -42,9 +53,9 @@ export default function HeroSection() {
           way. Start a live chat with one of our expert astrologers and begin
           your journey to a clearer, more fulfilled life.
         </p>
-        <Link to={"/login"}>
+        <section onClick={handleLogin}>
           <button className="start">Start</button>
-        </Link>
+        </section>
       </section>
       <section className="right">
         <img src={HEROIMAGE} alt="Hero Image" />

@@ -9,6 +9,10 @@ export default defineConfig({
         target: "https://api.astro-mandeep.com",
         secure: false,
       },
+      // "/astro-mandeep": {
+      //   target: "http://localhost:5000",
+      //   secure: false,
+      // },
     },
   },
   plugins: [react()],

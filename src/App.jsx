@@ -8,6 +8,7 @@ import FreeKundli from "./pages/freeKundli/FreeKundli";
 import BirthDetailsPage from "./pages/birthDetailsPage/BirthDetailsPage.jsx";
 import AllBlogs from "./pages/allBlogs/AllBlogs";
 import CreateBlogPage from "./pages/createBlogPage.jsx/CreateBlogPage.jsx";
+import MainPage from "./pages/mainPage/MainPage.jsx";
 
 function App() {
   console.log("Testing 1111");
@@ -67,6 +68,14 @@ function App() {
           element={
             <Layout>
               <CreateBlogPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/mainPage"
+          element={
+            <Layout>
+              <MainPage />
             </Layout>
           }
         />

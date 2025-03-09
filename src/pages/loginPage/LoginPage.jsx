@@ -2,11 +2,12 @@ import axios from "axios";
 import InputOTP from "../../components/inputOTP/InputOTP";
 import "./loginPage.css";
 import loginImage from "/images/loginImage.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 export default function LoginPage() {
   const [isOTPClicked, setIsOTPClicked] = useState(false);
@@ -14,7 +15,7 @@ export default function LoginPage() {
   const [combinedOTP, setCombinedOTP] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
   const [isValid, setIsValid] = useState(true);
-
+  const { setItem } = useLocalStorage();
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -22,23 +23,35 @@ export default function LoginPage() {
       // Check if the user exist or not
       setIsValid(true);
       axios
-        .post("/astro-mandeep/api/v1/get-otp", {
-          phoneNumber: `+${mobileNumber}`,
-        })
+        .get(`/astro-mandeep/api/v1/get-user/+${mobileNumber}`)
         .then((res) => {
-          const { otp } = res.data;
-          setServerOTP(otp);
-          localStorage.setItem("otp", otp);
-          axios
-            .post("/astro-mandeep/api/v1/send-otp", {
-              phoneNumber: `+${mobileNumber}`,
-              otp: otp,
-            })
-            .then((res) => {
-              const { message } = res.data;
-              toast.success(message);
-              setIsOTPClicked(true);
-            });
+          const { isExist, user } = res.data;
+          if (!isExist) {
+            axios
+              .post("/astro-mandeep/api/v1/get-otp", {
+                phoneNumber: `+${mobileNumber}`,
+              })
+              .then((res) => {
+                const { otp } = res.data;
+                setServerOTP(otp);
+                localStorage.setItem("otp", otp);
+                axios
+                  .post("/astro-mandeep/api/v1/send-otp", {
+                    phoneNumber: `+${mobileNumber}`,
+                    otp: otp,
+                  })
+                  .then((res) => {
+                    const { message } = res.data;
+                    toast.success(message);
+                    setIsOTPClicked(true);
+                  });
+              });
+            // setItem("mobileNumber", `+${mobileNumber}`);
+            // navigate("/birthDetailsPage");
+          } else {
+            navigate("/mainPage");
+            setItem("user", JSON.stringify(user));
+          }
         });
     } else {
       setIsValid(false);
@@ -48,9 +61,24 @@ export default function LoginPage() {
   const handleOTPSubmit = () => {
     console.log("testing", combinedOTP, serverOTP);
     if (combinedOTP === serverOTP) {
-      toast.success("Signed up successfully.");
-      navigate("/birthDetailsPage");
+      // toast.success("Signed up successfully.");
+      // setItem("mobileNumber", `+${mobileNumber}`);
+
+      handleCheckIsExistingUser(`${mobileNumber}`);
     }
+  };
+
+  const handleCheckIsExistingUser = (mobileNumber) => {
+    axios.get(`/astro-mandeep/api/v1/get-user/+${mobileNumber}`).then((res) => {
+      const { isExist, user } = res.data;
+      if (!isExist) {
+        setItem("mobileNumber", `+${mobileNumber}`);
+        navigate("/birthDetailsPage");
+      } else {
+        navigate("/mainPage");
+        setItem("user", JSON.stringify(user));
+      }
+    });
   };
 
   const handleMobileNumberChange = (mobileNumber) => {
