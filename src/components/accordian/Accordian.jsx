@@ -16,6 +16,8 @@ export default function Accordian() {
 
   // Testing
 
+  function testFunction() {}
+
   return (
     <section className="accordian">
       {faqs.map((faq) => {
