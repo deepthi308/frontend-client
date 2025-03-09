@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "Tarot"
+  },
+  {
+    "id": 2,
+    "name": "Vastu"
+  },
+  {
+    "id": 3,
+    "name": "Vedic"
+  },
+  {
+    "id": 4,
+    "name": "Kundli"
+  },
+  {
+    "id": 5,
+    "name": "Sports"
+  },
+  {
+    "id": 6,
+    "name": "Transits"
+  },
+  {
+    "id": 7,
+    "name": "Festivals"
+  },
+  {
+    "id": 8,
+    "name": "Business"
+  },
+  {
+    "id": 9,
+    "name": "Gemstones"
+  },
+  {
+    "id": 10,
+    "name": "Numerology"
+  },
+  {
+    "id": 11,
+    "name": "Zodiac Signs"
+  },
+  {
+    "id": 12,
+    "name": "Compatibility"
+  },
+  {
+    "id": 13,
+    "name": "Entertainment"
+  },
+  {
+    "id": 14,
+    "name": "Current Affairs"
+  },
+  {
+    "id": 15,
+    "name": "Daily Horoscope"
+  },
+
+  {
+    "id": 16,
+    "name": "Web StoriesNew"
+  }
+]

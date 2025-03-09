@@ -1,0 +1,28 @@
+[
+  {
+    "columnName": "Corporate Info",
+    "links": [
+      "Corporate Info",
+      "Privacy Policy",
+      "Disclaimer",
+      "About Us",
+      "Pricing Policy"
+    ]
+  },
+  {
+    "columnName": "Astrologer",
+    "links": [
+      "Astrologer Login",
+      "Astro Store",
+      "Chat With Astrologer",
+      "Talk With Astrologer"
+    ]
+  },
+  {
+    "columnName": "Contact Us",
+    "links": [
+      "We are available 24x7 on chat support",
+      "Email ID: contact@astro-mandeep.com"
+    ]
+  }
+]

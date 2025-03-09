@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "image": "./images/blogDummyImage.png",
+    "title": "Just  A Random Test Title For Testing",
+    "author": "Mani Prakash N",
+    "date": "15/10/1999"
+  },
+  {
+    "id": 2,
+    "image": "./images/blogDummyImage.png",
+    "title": "Just  A Random Test Title For Testing",
+    "author": "Praveen Hariraman",
+    "date": "22/05/1999"
+  },
+  {
+    "id": 3,
+    "image": "./images/blogDummyImage.png",
+    "title": "Just  A Random Test Title For Testing",
+    "author": "Deepthi Julie",
+    "date": "15/02/2002"
+  },
+  {
+    "id": 4,
+    "image": "./images/blogDummyImage.png",
+    "title": "Just  A Random Test Title For Testing",
+    "author": "Hariraman",
+    "date": "15/02/2002"
+  },
+  {
+    "id": 5,
+    "image": "./images/blogDummyImage.png",
+    "title": "Just  A Random Test Title For Testing",
+    "author": "Krishnalakshmi K",
+    "date": "15/02/2002"
+  },
+  {
+    "id": 6,
+    "image": "./images/blogDummyImage.png",
+    "title": "Just  A Random Test Title For Testing",
+    "author": "Sakthivel Kani",
+    "date": "15/02/2002"
+  },
+  {
+    "id": 7,
+    "image": "./images/blogDummyImage.png",
+    "title": "Just  A Random Test Title For Testing",
+    "author": "Julie Deepthi",
+    "date": "15/02/2002"
+  },
+  {
+    "id": 8,
+    "image": "./images/blogDummyImage.png",
+    "title": "Just  A Random Test Title For Testing",
+    "author": "Scorpio",
+    "date": "15/02/2002"
+  }
+]

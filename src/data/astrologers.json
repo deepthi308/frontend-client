@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "Deepthi Hariraman",
+    "skill": "Vedic Astrology",
+    "experience": 9,
+    "languages": ["Tamil", "English"],
+    "image": "./images/human1.png",
+    "orders": 10000
+  },
+  {
+    "id": 2,
+    "name": "Deepthi Hariraman",
+    "skill": "Vedic Astrology",
+    "experience": 9,
+    "languages": ["Tamil", "German"],
+    "image": "./images/human2.png",
+    "orders": 90000
+  },
+  {
+    "id": 3,
+    "name": "Deepthi Hariraman",
+    "skill": "Vedic Astrology",
+    "experience": 9,
+    "languages": ["Tamil", "German"],
+    "image": "./images/human3.png",
+    "orders": 1000
+  },
+  {
+    "id": 4,
+    "name": "Deepthi Hariraman",
+    "skill": "Vedic Astrology",
+    "experience": 9,
+    "languages": ["Tamil", "French"],
+    "image": "./images/human4.png",
+    "orders": 8000
+  },
+  {
+    "id": 5,
+    "name": "Deepthi Hariraman",
+    "skill": "Vedic Astrology",
+    "experience": 9,
+    "languages": ["Tamil", "Spanish"],
+    "image": "./images/human5.png",
+    "orders": 500
+  },
+  {
+    "id": 6,
+    "name": "Deepthi Hariraman",
+    "skill": "Vedic Astrology",
+    "experience": 9,
+    "image": "./images/human6.png",
+    "languages": ["Tamil", "English"],
+    "orders": 20000
+  },
+  {
+    "id": 7,
+    "name": "Deepthi Hariraman",
+    "skill": "Vedic Astrology",
+    "experience": 9,
+    "languages": ["Tamil", "Hindi"],
+    "image": "./images/human7.png",
+    "orders": 13000
+  },
+  {
+    "id": 8,
+    "name": "Deepthi Hariraman",
+    "skill": "Vedic Astrology",
+    "experience": 9,
+    "languages": ["Tamil", "Telugu"],
+    "image": "./images/human8.png",
+    "orders": 3000
+  },
+  {
+    "id": 9,
+    "name": "Deepthi Hariraman",
+    "skill": "Vedic Astrology",
+    "experience": 9,
+    "languages": ["Tamil"],
+    "image": "./images/human9.png",
+    "orders": 8000
+  }
+]

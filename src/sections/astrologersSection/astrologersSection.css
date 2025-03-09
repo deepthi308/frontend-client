@@ -1,0 +1,18 @@
+.astrologers {
+  padding: 40px 30px;
+}
+
+.astrologers-title {
+  text-align: center;
+  color: #a72005;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.astrologers-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 25px;
+}

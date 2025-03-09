@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "image": "./images/callServiceImage.png",
+    "description": "Unlock the mysteries of your life instantly! Start a chat with one of our expert astrologers and get real-time answers to your most pressing questions. Whether it’s love, career, or destiny, we’ve got you covered anytime, anywhere.",
+    "direction": "flex-start",
+    "reverse": false,
+    "start": -100,
+    "end": 0
+  },
+  {
+    "id": 2,
+    "image": "./images/chatServiceImage.png",
+    "description": "Looking for in-depth advice? Connect with a professional astrologer over the phone for a personalized, one-on-one consultation. Gain clarity and insights on your life’s path with direct, expert guidance you can trust.",
+    "direction": "flex-end",
+    "reverse": true,
+    "start": 100,
+    "end": 0
+  },
+  {
+    "id": 3,
+    "image": "./images/astroShopImage.png",
+    "description": "Ready to enhance your spiritual journey? Dive into our exclusive Astroshop, featuring hand-picked astrology tools, crystals & spiritual products. From healing stones to horoscope essentials, find what resonates with your soul!",
+    "direction": "flex-start",
+    "reverse": false,
+    "start": -100,
+    "end": 0
+  }
+]

@@ -1,0 +1,79 @@
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/homePage/HomePage";
+import LoginPage from "./pages/loginPage/LoginPage";
+import SignUpPage from "./pages/signUpPage/SignUpPage";
+import Layout from "./layout/Layout";
+import Blogs from "./pages/blogs/Blogs";
+import KundliMatching from "./pages/kundliMatching/KundliMatching";
+import FreeKundli from "./pages/freeKundli/FreeKundli";
+import BirthDetailsPage from "./pages/birthDetailsPage/birthDetailsPage";
+import AllBlogs from "./pages/allBlogs/AllBlogs";
+
+function App() {
+  console.log("Testing");
+  return (
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <HomePage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/freekundli"
+          element={
+            <Layout>
+              <FreeKundli />
+            </Layout>
+          }
+        />
+        <Route
+          path="/kundlimatching"
+          element={
+            <Layout>
+              <KundliMatching />
+            </Layout>
+          }
+        />
+        <Route
+          path="/birthDetailsPage"
+          element={
+            <Layout>
+              <BirthDetailsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Layout>
+              <LoginPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/allBlogs"
+          element={
+            <Layout>
+              <AllBlogs />
+            </Layout>
+          }
+        />
+        {/* <Route
+          path="/signUp"
+          element={
+            <Layout>
+              <SignUpPage />
+            </Layout>
+          }
+        /> */}
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;

@@ -1,0 +1,227 @@
+.birthDetails-form-container {
+  display: flex;
+  max-width: 800px;
+  min-height: 400px;
+  width: 90%;
+  /* background-color: red; */
+  gap: 20px;
+  /* background-color: yellow; */
+}
+
+.birthDetails-form-left {
+  flex: 0.5;
+  background-color: rgba(167, 32, 5, 0.12);
+  border: 2px solid #a72005;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 300px;
+  /* max-width: 400px; */
+}
+
+.birthDetails-form-left form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.birthDetails-form-left form .birthDetails-form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: red; */
+  height: 30px;
+  gap: 10px;
+}
+
+.birthDetails-form-left form .birthDetails-form-group label {
+  font-size: 16px;
+}
+
+.gender-group-radio-buttons {
+  font-size: 16px;
+}
+
+.birthDetails-form-left form .birthDetails-form-group input {
+  background-color: #d9d9d9;
+  border: 1.5px solid #a72005;
+  border-radius: 3px;
+  outline: none;
+  padding-left: 10px;
+  height: 100%;
+  width: 60%;
+  /* color: #a72005; */
+}
+
+.birthDetails-form-left form section textarea {
+  height: 60px;
+  width: 100%;
+  background-color: #d9d9d9;
+  border: 1.5px solid #a72005;
+  border-radius: 3px;
+  padding-left: 10px;
+  padding: 6px;
+  outline: none;
+  /* color: #a72005; */
+}
+
+.birthDetails-form-right {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.birthDetails-form-right .file-upload {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.birthDetails-form-right img {
+  height: 100%;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid #a72005;
+  border-radius: 10px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.267);
+  filter: brightness(10) hue-rotate(330);
+}
+
+.gender-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gender-group .gender {
+  flex: 0.4;
+  font-size: 16px;
+}
+
+.gender-group-radio-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  flex: 0.6;
+}
+
+.custom-image-upload,
+.avatar-image-upload {
+  background-color: #a72005;
+  padding: 10px 16px;
+  border-radius: 3px;
+  color: #d9d9d9;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.profile-picture-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.astro-caption {
+  display: flex;
+  flex-direction: column;
+  /* background-color: yellow; */
+  gap: 10px;
+}
+
+.astro-caption .caption {
+  font-size: 16px;
+}
+
+.text-area-caption {
+  resize: none;
+}
+
+.birthDetailsFormSubmit {
+  padding: 6px 10px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  background-color: #a72005;
+  color: #d9d9d9;
+}
+
+.birthDetailsFormSubmit {
+  cursor: pointer;
+}
+
+@media (min-width: 100px) and (max-width: 800px) {
+  .birthDetails-form-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  .birthDetails-form-right img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+  }
+
+  .birthDetails-form-left {
+    width: 90%;
+    max-width: 420px;
+  }
+
+  .birthDetails-form-left form .birthDetails-form-group label {
+    font-size: 14px;
+  }
+
+  .gender-group .gender {
+    font-size: 14px;
+  }
+
+  .gender-group-radio-buttons {
+    font-size: 14px;
+  }
+
+  .astro-caption .caption {
+    font-size: 14px;
+  }
+
+  .custom-image-upload,
+  .avatar-image-upload {
+    font-size: 14px;
+  }
+
+  .upload-container {
+    width: 30%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1200px) {
+  .birthDetails-form-left form .birthDetails-form-group label {
+    font-size: 15px;
+  }
+
+  .astro-caption .caption {
+    font-size: 15px;
+  }
+
+  .gender-group .gender {
+    font-size: 15px;
+  }
+
+  .gender-group-radio-buttons {
+    font-size: 15px;
+  }
+
+  .custom-image-upload,
+  .avatar-image-upload {
+    font-size: 15px;
+  }
+
+  .upload-container {
+    width: 30%;
+  }
+}

@@ -1,0 +1,6 @@
+.faqs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px 30px;
+}

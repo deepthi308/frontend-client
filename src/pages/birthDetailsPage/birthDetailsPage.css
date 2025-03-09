@@ -1,0 +1,31 @@
+.birthDetailsPage {
+  /* min-height: calc(100vh - 70px); */
+  height: 100vh;
+  /* background-color: yellow; */
+  min-height: fit-content;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* gap: 10px; */
+  margin-top: 38px;
+}
+
+.birthDetailsTitle {
+  font-size: 20px;
+  font-weight: 500;
+  /* background-color: red; */
+}
+
+@media (min-width: 100px) and (max-width: 800px) {
+  .birthDetailsPage {
+    margin-top: 66px;
+  }
+}
+
+@media (min-width: 800px) {
+  .birthDetailsPage {
+    gap: 30px;
+  }
+}

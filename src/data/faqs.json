@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "question": "What is a Birth Chart?",
+    "answers": {
+      "summary": "A birth chart is your personal snapshot of the universe frozen in time. When you were born, the stars, planets, and cosmic energies aligned in a way that was completely unique to you. Each celestial body, each constellation, and each planetary position holds clues to the mysteries of your soul.",
+      "details": [
+        "The Sun Sign: Your core essence, your inner light, your identity. It is the energy that drives you, your most visible and radiant self.",
+        "The Moon Sign: The moon, mysterious and intuitive, reveals your emotional landscape, your hidden depths, and how you feel when no one is watching.",
+        "The Ascendant (Rising Sign): The mask you wear for the world, how you present yourself to the universe, your first impression.",
+        "Planetary Positions: Every planet in your chart represents a force—Venus brings love, Mars fuels action, Jupiter offers wisdom, Saturn teaches life lessons—and where they lie in your chart tells you where their magic manifests in your life."
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "question": "How Your Birth Chart Shapes Your Destiny",
+    "answers": {
+      "summary": "Your birth chart is not just a record of where the planets were when you were born. It’s a map of your soul’s journey, a guide to your inner world and your place in the cosmos. It’s the universe’s way of speaking to you, showing you why you are the way you are, and offering you a glimpse into the future.",
+      "details": [
+        "Who are you truly? The birth chart reveals the hidden layers of your personality that you may not even be aware of.",
+        "What’s your cosmic purpose? Your birth chart helps uncover your true calling, revealing the path that will bring you the most fulfillment.",
+        "How do the stars influence your life? Whether you’re experiencing moments of joy or challenge, your birth chart will guide you to understand why things are happening the way they are."
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "question": "The Magic of the Planets: How They Shape Your Life",
+    "answers": {
+      "summary": "Each planet in your birth chart is like a cosmic actor playing a unique role in the theater of your life. Here’s a taste of their magical influence:",
+      "details": [
+        "The Sun: The heart of your chart. It’s the source of your vitality, your confidence, and the force that propels you toward your destiny.",
+        "The Moon: The guardian of your emotional realm. It governs your innermost feelings, desires, and instincts. It is your guide through the hidden, subconscious corners of your soul.",
+        "Mercury: The messenger of the gods, Mercury governs your thoughts, communication, and how you process the world around you. It’s the spark of insight, the voice of reason.",
+        "Venus: The goddess of love, beauty, and pleasure. Venus blesses you with the ability to connect, to find harmony, and to experience love in its many forms.",
+        "Mars: The warrior of the zodiac. Mars fuels your passion, your drive, and your courage to face the challenges ahead.",
+        "Jupiter: The bringer of luck, growth, and wisdom. Jupiter offers opportunities for expansion and abundance, showering your life with blessings.",
+        "Saturn: The teacher and the disciplinarian. Saturn brings life lessons, helping you grow stronger through hardships and responsibility.",
+        "Rahu and Ketu: The shadowy pair, the North and South Nodes of the Moon, representing your karmic path. Rahu pulls you toward worldly desires, while Ketu urges you to seek spiritual wisdom."
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "question": "The Magic of the Planets: How They Shape Your Life",
+    "answers": {
+      "summary": "Imagine the 12 houses in your birth chart as magical realms, each representing a different aspect of your life. Each house holds a treasure chest of experiences, challenges, and opportunities. Where the planets sit in these houses reveals where the cosmic forces will most strongly affect you.",
+      "details": [
+        "The First House (Self): This is your personal realm, the kingdom of your identity. It’s how you see yourself and how the world sees you.",
+        "The Fifth House (Creativity & Love): A house of passion, joy, and romance, where the stars guide your creativity and matters of the heart.",
+        "The Tenth House (Career & Reputation): The house of ambition, career, and public life. It tells you how the world will know you for your achievements.",
+        "The Twelfth House (Spirituality & Secrets): The mystical house of hidden knowledge, spirituality, and the subconscious mind, where you connect with your higher self."
+      ]
+    }
+  }
+]

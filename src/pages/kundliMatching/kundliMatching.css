@@ -1,0 +1,8 @@
+.kundliMatching {
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 70px);
+  width: 100vw;
+}

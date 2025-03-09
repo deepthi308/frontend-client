@@ -1,0 +1,36 @@
+name: Deploy to frontend-client
+
+on:
+  push:
+    branches: [ main ] # Change to your main branch name if different
+  workflow_dispatch: # Allows manual triggering from GitHub Actions UI
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        
+    - name: Add host key to known hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H 15.235.197.104 >> ~/.ssh/known_hosts
+        
+    - name: Deploy to server
+      run: |
+        ssh ubuntu@15.235.197.104 << 'EOF'
+          # Navigate to the repository directory
+          cd /usr/share/nginx/site-code/client
+          
+          # Pull the latest changes
+          git pull origin main
+          # Use NVM if installed or specify the full path to npm
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+           npm i
+           npm run build
+        EOF
