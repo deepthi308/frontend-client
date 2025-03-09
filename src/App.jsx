@@ -5,7 +5,7 @@ import LoginPage from "./pages/loginPage/LoginPage";
 import Layout from "./layout/Layout";
 import KundliMatching from "./pages/kundliMatching/KundliMatching";
 import FreeKundli from "./pages/freeKundli/FreeKundli";
-import BirthDetailsPage from "./pages/birthDetailsPage/BirthDetailsPage.jsx";
+import BirthDetailsPage from "./pages/birthDetailsPage/birthDetailsPage.jsx";
 import AllBlogs from "./pages/allBlogs/AllBlogs";
 import CreateBlogPage from "./pages/createBlogPage.jsx/createBlogPage";
 
