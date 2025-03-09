@@ -7,7 +7,7 @@ import KundliMatching from "./pages/kundliMatching/KundliMatching";
 import FreeKundli from "./pages/freeKundli/FreeKundli";
 import BirthDetailsPage from "./pages/birthDetailsPage/BirthDetailsPage.jsx";
 import AllBlogs from "./pages/allBlogs/AllBlogs";
-import CreateBlogPage from "./pages/createBlogPage.jsx/createBlogPage";
+import CreateBlogPage from "./pages/createBlogPage.jsx/CreateBlogPage.jsx";
 
 function App() {
   console.log("Testing");
