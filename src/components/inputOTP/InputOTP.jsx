@@ -70,7 +70,7 @@ export default function InputOTP({ count, setCombinedOTP, isValid }) {
             ))}
           </section>
         </div>
-        <p className="otp-error">Incorrect OTP</p>
+        {!isValid && <p className="otp-error">Incorrect OTP</p>}
       </section>
     </>
   );

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useReducer, useRef, useState } from "react";
 import "./birthDetailsForm.css";
 import { MdFileUpload } from "react-icons/md";
 import { toast } from "react-toastify";
@@ -6,6 +6,8 @@ import axios from "axios";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import { useDispatch } from "react-redux";
+import { signIn } from "../../store/user.slice";
 
 export default function BirthDetailsForm() {
   const { getItem, setItem } = useLocalStorage();
@@ -27,6 +29,10 @@ export default function BirthDetailsForm() {
   const [avatar, setAvatar] = useState("");
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+  const state = useReducer((state) => state.user);
+  console.log(state);
+
   // console.log("Avatar", avatar);
   // console.log("Image", base64Image);
 
@@ -43,7 +49,7 @@ export default function BirthDetailsForm() {
   };
 
   const handleChooseAvatar = () => {
-    console.log("testing");
+    // console.log("testing");
     setAvatar(
       `https://api.dicebear.com/9.x/adventurer-neutral/svg?backgroundColor=ecad80&seed=${new Date()
         .getMilliseconds()
@@ -112,6 +118,7 @@ export default function BirthDetailsForm() {
                 // toast.success(message);
                 setTimeout(() => {
                   setItem("user", JSON.stringify(user));
+                  dispatch(signIn(user));
                   navigate("/mainPage");
                   setLoading(false);
                 }, 2000);
@@ -136,6 +143,7 @@ export default function BirthDetailsForm() {
             // toast.success(message);
             setTimeout(() => {
               setItem("user", JSON.stringify(user));
+              dispatch(signIn(user));
               navigate("/mainPage");
               setLoading(false);
             }, 2000);

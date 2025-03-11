@@ -23,7 +23,7 @@ class User {
 }
 
 const initialState = {
-  user: new User(),
+  user: JSON.parse(localStorage.getItem("user")) || new User(),
 };
 
 const userSlice = createSlice({
@@ -33,8 +33,11 @@ const userSlice = createSlice({
     signIn: (state, action) => {
       state.user = action.payload;
     },
+    signOut: (state, action) => {
+      state.user = action.payload;
+    },
   },
 });
 
-export const {} = userSlice.actions;
+export const { signIn, signOut } = userSlice.actions;
 export const userReducer = userSlice.reducer;

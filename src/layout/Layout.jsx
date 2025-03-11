@@ -6,11 +6,14 @@ export default function Layout({
   isLogin,
   isBurgerMenuClicked,
   setIsBurgerMenuClicked,
+  isSignOut,
 }) {
+  console.log(isSignOut, isLogin);
   return (
     <>
       <Navbar
         isLogin={isLogin}
+        isSignOut={isSignOut}
         isBurgerMenuClicked={isBurgerMenuClicked}
         setIsBurgerMenuClicked={setIsBurgerMenuClicked}
       />

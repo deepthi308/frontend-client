@@ -117,10 +117,14 @@
   cursor: pointer;
 }
 
+.create-blog-button-container {
+  display: none;
+}
+
 .create-blog-small {
   border: none;
   outline: none;
-  width: 90%;
+  width: 300px;
   font-size: 13px;
   margin: auto;
   margin-top: 20px;
@@ -159,6 +163,10 @@
 
   .category-dropdown-container label {
     font-size: 13px;
+  }
+
+  .create-blog-button-container {
+    display: block;
   }
 }
 

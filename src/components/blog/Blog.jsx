@@ -5,9 +5,17 @@ import { FaCommentDots } from "react-icons/fa6";
 import { FaEye } from "react-icons/fa";
 import { FaShareFromSquare } from "react-icons/fa6";
 import { FaDownload } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Blog({ blog }) {
   const { image, title, author, date } = blog;
+
+  const navigate = useNavigate();
+
+  const handleDisplayBlogDetails = (title) => {
+    navigate(`/blog/${title}`);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 100 }}
@@ -15,6 +23,7 @@ export default function Blog({ blog }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className="blog"
+      onClick={() => handleDisplayBlogDetails(title)}
     >
       <section className="blogContainer-top">
         <img src={image} alt="Blog Image" />

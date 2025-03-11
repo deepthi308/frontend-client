@@ -7,13 +7,16 @@ import { CgClose } from "react-icons/cg";
 import BrandLogo from "/images/astroManDeepologyLogo.png";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { ClipLoader } from "react-spinners";
+import { useDispatch } from "react-redux";
+import { signIn, signOut } from "../../store/user.slice";
 
 export default function Navbar({
   isLogin,
   isBurgerMenuClicked,
   setIsBurgerMenuClicked,
+  isSignOut,
 }) {
-  // const [isBurgerMenuClicked, setIsBurgerMenuClicked] = useState(false);
+  console.log(isSignOut);
   const navigate = useNavigate();
   const { removeItem, getItem } = useLocalStorage();
 
@@ -22,9 +25,12 @@ export default function Navbar({
     setIsBurgerMenuClicked(clickedState);
   };
 
+  const dispatch = useDispatch();
+
   const handleLogin = () => {
     const user = getItem("user", "");
     if (user) {
+      dispatch(signIn(user));
       navigate("/mainPage");
     } else {
       removeItem("otp");
@@ -32,6 +38,14 @@ export default function Navbar({
       removeItem("user");
       navigate("/login");
     }
+  };
+
+  const handleLogout = () => {
+    removeItem("otp");
+    removeItem("mobileNumber");
+    removeItem("user");
+    dispatch(signOut({}));
+    navigate("/");
   };
 
   const handleNavigation = (path) => {
@@ -78,7 +92,8 @@ export default function Navbar({
             <Link to={"/#faqs"}>Faqs</Link>
           </li>
         </ul>
-        {!isLogin && <button onClick={handleLogin}>Login</button>}
+        {!isLogin && !isSignOut && <button onClick={handleLogin}>Login</button>}
+        {isSignOut && <button onClick={handleLogout}>Logout</button>}
       </section>
 
       <section className="small-device-nav-links">
@@ -154,9 +169,14 @@ export default function Navbar({
               <li className="link2" onClick={() => handleNavigation("/#faqs")}>
                 <Link>Faqs</Link>
               </li>
-              {!isLogin && (
+              {!isLogin && !isSignOut && (
                 <li className="link2" onClick={() => handleLogin()}>
                   <Link>Login</Link>
+                </li>
+              )}
+              {isSignOut && (
+                <li className="link2" onClick={() => handleLogout()}>
+                  <Link>Logout</Link>
                 </li>
               )}
             </ul>

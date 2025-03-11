@@ -17,12 +17,21 @@
   width: 100%;
   max-width: 90%;
   max-width: 800px;
-  padding: 20px;
+  padding: 7px;
 }
 
 /* .create-blog-form-group label { */
 /* flex: 0.5; */
 /* } */
+
+.blog-thumbnail-upload {
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
 
 .create-blog-page .submit-btn {
   background-color: #a72005;
@@ -33,6 +42,8 @@
   border-radius: 3px;
   margin-top: 10px;
   cursor: pointer;
+  width: 100%;
+  max-width: 200px;
 }
 
 .create-blog-form-group input {
@@ -41,6 +52,7 @@
   outline: none;
   height: 30px;
   width: 100%;
+  padding-left: 7px;
   background-color: rgba(167, 32, 5, 0.12);
   box-shadow: inset 0px 0px 1.2px #a72005;
   border: 1.2px solid #a72005;
@@ -59,11 +71,41 @@
   background-color: rgba(167, 32, 5, 0.12);
   box-shadow: inset 0px 0px 1.2px #a72005;
   border: 1.2px solid #a72005;
-  min-height: 460px;
+  min-height: 400px;
+  max-height: 90%;
   /* overflow-y: scroll; */
-  min-width: 90%;
+  min-width: 300px;
   max-width: 800px;
   padding: 20px;
   border-radius: 10px;
   align-self: center;
+}
+
+.blog-thumbnail-upload {
+  background-color: #a72005;
+  border: none;
+  outline: none;
+  color: #d9d9d9;
+  padding: 3px 10px;
+  /* border-radius: 3px; */
+}
+
+.category-dropdown-container2 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 90%;
+  max-width: 800px;
+  padding: 7px;
+}
+
+.thumbnail_image {
+  width: 300px;
+}
+
+@media (min-width: 100px) and (max-width: 500px) {
+  .create-blog-form-group {
+    font-size: 13px;
+  }
 }

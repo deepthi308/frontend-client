@@ -5,8 +5,15 @@ import { FaEye } from "react-icons/fa";
 import { FaShareFromSquare } from "react-icons/fa6";
 import { FaDownload } from "react-icons/fa";
 import "./allPageBlog.css";
+import { useNavigate } from "react-router-dom";
 
 export default function AllPageBlog({ id, title, author, date, image }) {
+  const navigate = useNavigate();
+
+  const handleDisplayBlogDetails = (title) => {
+    navigate(`/blog/${title}`);
+  };
+
   return (
     <motion.div
       key={id}
@@ -15,12 +22,15 @@ export default function AllPageBlog({ id, title, author, date, image }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className="allBlogs-blog"
+      onClick={() => handleDisplayBlogDetails(title)}
     >
       <section className="blogContainer-top">
         <img src={image} alt="Blog Image" />
       </section>
       <section className="blogContainer-bottom">
-        <h3 className="blog-title">{title}</h3>
+        <h3 className="blog-title" style={{ fontSize: "15px" }}>
+          {title}
+        </h3>
       </section>
       {/* <section className="blogContainer-footer">
         <p className="para author">{author}</p>

@@ -5,14 +5,14 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   server: {
     proxy: {
-      // "/astro-mandeep": {
-      //   target: "https://api.astro-mandeep.com",
-      //   secure: false,
-      // },
       "/astro-mandeep": {
-        target: "http://localhost:5000",
+        target: "https://api.astro-mandeep.com",
         secure: false,
       },
+      // "/astro-mandeep": {
+      //   target: "http://localhost:5000",
+      //   secure: false,
+      // },
     },
   },
   plugins: [react()],

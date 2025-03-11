@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { ClipLoader } from "react-spinners";
+import { useDispatch } from "react-redux";
+import { signIn } from "../../store/user.slice";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
@@ -19,6 +21,7 @@ export default function LoginPage() {
   const [isValid, setIsValid] = useState(true);
   const { setItem } = useLocalStorage();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogin = () => {
     if (validatePhoneNumber(mobileNumber)) {
@@ -86,8 +89,9 @@ export default function LoginPage() {
         setItem("mobileNumber", `+${mobileNumber}`);
         navigate("/birthDetailsPage");
       } else {
-        navigate("/mainPage");
         setItem("user", JSON.stringify(user));
+        dispatch(signIn(user));
+        navigate("/mainPage");
       }
     });
   };

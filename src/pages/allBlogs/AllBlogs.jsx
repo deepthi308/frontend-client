@@ -1,19 +1,35 @@
 import "./allBlogs.css";
-import blogs from "../../data/dummyBlogs.json";
-import { useEffect } from "react";
+import blogsData from "../../data/dummyBlogs.json";
+import { useEffect, useState } from "react";
 import blogsCategories from "../../data/blogsCategories.json";
 import BlogCategories from "../../components/blogCategories/BlogCategories";
 import { MdNoteAdd } from "react-icons/md";
 import AllPageBlog from "../../components/allPageBlog/AllPageBlog";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 export default function AllBlogs() {
+  const [blogs, setBlogs] = useState([]);
+
   useEffect(() => {
     window.scrollTo({
       top: document.getElementById("allBlogs").offsetTop,
       behavior: "smooth",
     });
+
+    async function getAllBlogs() {
+      axios.get("/astro-mandeep/api/v1/get-blogs").then((res) => {
+        const { blogs } = res.data;
+        setBlogs(blogs);
+      });
+    }
+
+    getAllBlogs();
   }, []);
+
+  const user = useSelector((state) => state.user.user);
+  console.log(user);
 
   return (
     <section className="allBlogs" id="allBlogs">
@@ -35,18 +51,23 @@ export default function AllBlogs() {
             })}
           </select>
         </section>
-
-        <Link to={"/createBlog"} className="create-blog-small">
-          <MdNoteAdd size={20} color="#D9D9D9" />
-          <p>Create Blog</p>
-        </Link>
+        {user.name && (
+          <section className="create-blog-button-container">
+            <Link to={"/createBlog"} className="create-blog-small">
+              <MdNoteAdd size={20} color="#D9D9D9" />
+              <p>Create Blog</p>
+            </Link>
+          </section>
+        )}
       </section>
       <section className="blogs-three-in-one">
         <section className="blogs-categories">
-          <Link to={"/createBlog"} className="create-blog">
-            <MdNoteAdd size={20} color="#D9D9D9" />
-            <p>Create Blog</p>
-          </Link>
+          {user.name && (
+            <Link to={"/createBlog"} className="create-blog">
+              <MdNoteAdd size={20} color="#D9D9D9" />
+              <p>Create Blog</p>
+            </Link>
+          )}
           <h2 className="category-title sub-title">Categories</h2>
           <BlogCategories blogsCategories={blogsCategories} />
         </section>

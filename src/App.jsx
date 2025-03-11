@@ -10,6 +10,7 @@ import AllBlogs from "./pages/allBlogs/AllBlogs";
 import CreateBlogPage from "./pages/createBlogPage.jsx/CreateBlogPage.jsx";
 import MainPage from "./pages/mainPage/MainPage.jsx";
 import { useState } from "react";
+import BlogPage from "./pages/blogPage/BlogPage.jsx";
 
 function App() {
   const [isBurgerMenuClicked, setIsBurgerMenuClicked] = useState(false);
@@ -120,10 +121,26 @@ function App() {
           path="/mainPage"
           element={
             <Layout
+              isSignOut={true}
               isBurgerMenuClicked={isBurgerMenuClicked}
               setIsBurgerMenuClicked={setIsBurgerMenuClicked}
             >
               <MainPage
+                isBurgerMenuClicked={isBurgerMenuClicked}
+                setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+              />
+            </Layout>
+          }
+        />
+        <Route
+          path="/blog/:title"
+          element={
+            <Layout
+              isSignOut={true}
+              isBurgerMenuClicked={isBurgerMenuClicked}
+              setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+            >
+              <BlogPage
                 isBurgerMenuClicked={isBurgerMenuClicked}
                 setIsBurgerMenuClicked={setIsBurgerMenuClicked}
               />
