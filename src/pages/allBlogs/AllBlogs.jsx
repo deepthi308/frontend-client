@@ -35,6 +35,11 @@ export default function AllBlogs() {
             })}
           </select>
         </section>
+
+        <Link to={"/createBlog"} className="create-blog-small">
+          <MdNoteAdd size={20} color="#D9D9D9" />
+          <p>Create Blog</p>
+        </Link>
       </section>
       <section className="blogs-three-in-one">
         <section className="blogs-categories">
@@ -48,7 +53,7 @@ export default function AllBlogs() {
         <section className="blogs-bottom">
           {blogs.map((blog) => {
             const { id, title, author, date, image } = blog;
-            return <AllPageBlog {...blog} />;
+            return <AllPageBlog key={id} {...blog} />;
           })}
         </section>
         <section className="top-blogs">
