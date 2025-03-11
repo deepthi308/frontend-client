@@ -5,9 +5,11 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 export default function BirthDetailsForm() {
   const { getItem, setItem } = useLocalStorage();
+  const [loading, setLoading] = useState(false);
   const [userDetails, setUserDetails] = useState({
     name: "",
     gender: "female",
@@ -78,6 +80,7 @@ export default function BirthDetailsForm() {
       toast.error("Please enter all the required fields.");
     } else {
       if (base64Image) {
+        setLoading(true);
         const CLOUD_NAME = "drfzvtxg9";
         const UPLOAD_PRESET = "kyloimtt";
 
@@ -105,13 +108,17 @@ export default function BirthDetailsForm() {
               })
               .then((res) => {
                 const { message, user } = res.data;
-                console.log(res.data);
+                // console.log(res.data);
                 // toast.success(message);
-                setItem("user", JSON.stringify(user));
-                navigate("/mainPage");
+                setTimeout(() => {
+                  setItem("user", JSON.stringify(user));
+                  navigate("/mainPage");
+                  setLoading(false);
+                }, 2000);
               });
           });
       } else if (avatar) {
+        setLoading(true);
         axios
           .post("/astro-mandeep/api/v1/create-user", {
             name,
@@ -125,10 +132,13 @@ export default function BirthDetailsForm() {
           })
           .then((res) => {
             const { message, user } = res.data;
-            console.log(res.data);
+            // console.log(res.data);
             // toast.success(message);
-            setItem("user", JSON.stringify(user));
-            navigate("/mainPage");
+            setTimeout(() => {
+              setItem("user", JSON.stringify(user));
+              navigate("/mainPage");
+              setLoading(false);
+            }, 2000);
           });
       } else if (!avatar && !base64Image) {
         toast.error("Please upload profile picture or choose an avatar.");
@@ -256,7 +266,16 @@ export default function BirthDetailsForm() {
             className="birthDetailsFormSubmit"
             onClick={handleBirthDetailsSubmit}
           >
-            Submit
+            {loading ? (
+              <ClipLoader
+                loading={loading}
+                size={20}
+                speedMultiplier={0.5}
+                color="#D9D9D9"
+              />
+            ) : (
+              "Submit"
+            )}
           </button>
         </form>
       </section>

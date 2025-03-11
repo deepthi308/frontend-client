@@ -8,8 +8,10 @@ import "react-phone-input-2/lib/style.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { ClipLoader } from "react-spinners";
 
 export default function LoginPage() {
+  const [loading, setLoading] = useState(false);
   const [isOTPClicked, setIsOTPClicked] = useState(false);
   const [serverOTP, setServerOTP] = useState("");
   const [combinedOTP, setCombinedOTP] = useState("");
@@ -21,37 +23,41 @@ export default function LoginPage() {
   const handleLogin = () => {
     if (validatePhoneNumber(mobileNumber)) {
       // Check if the user exist or not
+      setLoading(true);
       setIsValid(true);
       axios
         .get(`/astro-mandeep/api/v1/get-user/+${mobileNumber}`)
         .then((res) => {
-          const { isExist, user } = res.data;
-          if (!isExist) {
-            axios
-              .post("/astro-mandeep/api/v1/get-otp", {
-                phoneNumber: `+${mobileNumber}`,
-              })
-              .then((res) => {
-                const { otp } = res.data;
-                setServerOTP(otp);
-                localStorage.setItem("otp", otp);
-                axios
-                  .post("/astro-mandeep/api/v1/send-otp", {
-                    phoneNumber: `+${mobileNumber}`,
-                    otp: otp,
-                  })
-                  .then((res) => {
-                    const { message } = res.data;
-                    toast.success(message);
-                    setIsOTPClicked(true);
-                  });
-              });
-            // setItem("mobileNumber", `+${mobileNumber}`);
-            // navigate("/birthDetailsPage");
-          } else {
-            navigate("/mainPage");
-            setItem("user", JSON.stringify(user));
-          }
+          // const { isExist, user } = res.data;
+          // if (!isExist) {
+          axios
+            .post("/astro-mandeep/api/v1/get-otp", {
+              phoneNumber: `+${mobileNumber}`,
+            })
+            .then((res) => {
+              const { otp } = res.data;
+              setServerOTP(otp);
+              localStorage.setItem("otp", otp);
+              axios
+                .post("/astro-mandeep/api/v1/send-otp", {
+                  phoneNumber: `+${mobileNumber}`,
+                  otp: otp,
+                })
+                .then((res) => {
+                  const { message } = res.data;
+                  toast.success(message);
+                  setLoading(false);
+                  setIsOTPClicked(true);
+                });
+            });
+          // setItem("mobileNumber", `+${mobileNumber}`);
+          // navigate("/birthDetailsPage");
+          // }
+
+          // else {
+          // navigate("/mainPage");
+          // setItem("user", JSON.stringify(user));
+          // }
         });
     } else {
       setIsValid(false);
@@ -59,17 +65,22 @@ export default function LoginPage() {
   };
 
   const handleOTPSubmit = () => {
-    console.log("testing", combinedOTP, serverOTP);
+    console.log("testing", combinedOTP, serverOTP, isValid, isOTPClicked);
     if (combinedOTP === serverOTP) {
       // toast.success("Signed up successfully.");
       // setItem("mobileNumber", `+${mobileNumber}`);
-
-      handleCheckIsExistingUser(`${mobileNumber}`);
+      setLoading(true);
+      setTimeout(() => {
+        handleCheckIsExistingUser(`${mobileNumber}`);
+      }, 2000);
+    } else {
+      setIsValid(false);
     }
   };
 
   const handleCheckIsExistingUser = (mobileNumber) => {
     axios.get(`/astro-mandeep/api/v1/get-user/+${mobileNumber}`).then((res) => {
+      setLoading(false);
       const { isExist, user } = res.data;
       if (!isExist) {
         setItem("mobileNumber", `+${mobileNumber}`);
@@ -95,14 +106,14 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="login">
+    <section className="login content fade-in">
       <section className="login-form-container">
         <section className="login-form-container-left">
           <img src={loginImage} alt="" />
         </section>
         <div className="login-form-container-right">
           <h3 className="otp-message">
-            You will receive a OTP on your mobile for verification
+            You would have received an OTP on your mobile
           </h3>
           {!isOTPClicked ? (
             <section className="form-group phone-input-container">
@@ -148,13 +159,37 @@ export default function LoginPage() {
               )}
             </section>
           ) : (
-            <InputOTP count={4} setCombinedOTP={setCombinedOTP} />
+            <InputOTP
+              count={4}
+              setCombinedOTP={setCombinedOTP}
+              isValid={isValid}
+            />
           )}
           {!isOTPClicked ? (
-            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleLogin}>
+              {loading ? (
+                <ClipLoader
+                  loading={loading}
+                  size={20}
+                  speedMultiplier={0.5}
+                  color="#D9D9D9"
+                />
+              ) : (
+                "Login"
+              )}
+            </button>
           ) : (
             <button onClick={({ target }) => handleOTPSubmit(target)}>
-              Submit
+              {loading ? (
+                <ClipLoader
+                  loading={loading}
+                  size={20}
+                  speedMultiplier={0.5}
+                  color="#D9D9D9"
+                />
+              ) : (
+                "Submit"
+              )}
             </button>
           )}
           <p className="login-privacy-policy">

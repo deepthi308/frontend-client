@@ -6,11 +6,16 @@ import { motion } from "framer-motion";
 import { CgClose } from "react-icons/cg";
 import BrandLogo from "/images/astroManDeepologyLogo.png";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { ClipLoader } from "react-spinners";
 
-export default function Navbar() {
-  const [isBurgerMenuClicked, setIsBurgerMenuClicked] = useState(false);
+export default function Navbar({
+  isLogin,
+  isBurgerMenuClicked,
+  setIsBurgerMenuClicked,
+}) {
+  // const [isBurgerMenuClicked, setIsBurgerMenuClicked] = useState(false);
   const navigate = useNavigate();
-  const { removeItem } = useLocalStorage();
+  const { removeItem, getItem } = useLocalStorage();
 
   const handleBurgerMenuClick = () => {
     let clickedState = isBurgerMenuClicked === true ? false : true;
@@ -18,10 +23,15 @@ export default function Navbar() {
   };
 
   const handleLogin = () => {
-    removeItem("otp");
-    removeItem("mobileNumber");
-    removeItem("user");
-    navigate("/login");
+    const user = getItem("user", "");
+    if (user) {
+      navigate("/mainPage");
+    } else {
+      removeItem("otp");
+      removeItem("mobileNumber");
+      removeItem("user");
+      navigate("/login");
+    }
   };
 
   const handleNavigation = (path) => {
@@ -59,7 +69,7 @@ export default function Navbar() {
             <Link to={"/#services"}>Services</Link>
           </li>
           <li className="link">
-            <Link to={"/#blogs"}>Blogs</Link>
+            <Link to={"/allBlogs"}>Blogs</Link>
           </li>
           <li className="link">
             <Link to={"/#astrologers"}>Astrologers</Link>
@@ -68,7 +78,7 @@ export default function Navbar() {
             <Link to={"/#faqs"}>Faqs</Link>
           </li>
         </ul>
-        <button onClick={handleLogin}>Login</button>
+        {!isLogin && <button onClick={handleLogin}>Login</button>}
       </section>
 
       <section className="small-device-nav-links">
@@ -129,7 +139,10 @@ export default function Navbar() {
               >
                 <Link>Services</Link>
               </li>
-              <li className="link2" onClick={() => handleNavigation("/#blogs")}>
+              <li
+                className="link2"
+                onClick={() => handleNavigation("/allBlogs")}
+              >
                 <Link>Blogs</Link>
               </li>
               <li
@@ -141,9 +154,11 @@ export default function Navbar() {
               <li className="link2" onClick={() => handleNavigation("/#faqs")}>
                 <Link>Faqs</Link>
               </li>
-              <li className="link2" onClick={() => handleNavigation("/login")}>
-                <Link>Login</Link>
-              </li>
+              {!isLogin && (
+                <li className="link2" onClick={() => handleLogin()}>
+                  <Link>Login</Link>
+                </li>
+              )}
             </ul>
           </motion.div>
         ) : null}

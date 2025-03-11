@@ -9,73 +9,124 @@ import BirthDetailsPage from "./pages/birthDetailsPage/BirthDetailsPage.jsx";
 import AllBlogs from "./pages/allBlogs/AllBlogs";
 import CreateBlogPage from "./pages/createBlogPage.jsx/CreateBlogPage.jsx";
 import MainPage from "./pages/mainPage/MainPage.jsx";
+import { useState } from "react";
 
 function App() {
-  console.log("Testing 1111");
+  const [isBurgerMenuClicked, setIsBurgerMenuClicked] = useState(false);
+
   return (
     <Router>
       <Routes>
         <Route
           path="/"
           element={
-            <Layout>
-              <HomePage />
+            <Layout
+              isBurgerMenuClicked={isBurgerMenuClicked}
+              setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+            >
+              <HomePage
+                isBurgerMenuClicked={isBurgerMenuClicked}
+                setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+              />
             </Layout>
           }
         />
         <Route
           path="/freekundli"
           element={
-            <Layout>
-              <FreeKundli />
+            <Layout
+              isBurgerMenuClicked={isBurgerMenuClicked}
+              setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+            >
+              <FreeKundli
+                isBurgerMenuClicked={isBurgerMenuClicked}
+                setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+              />
             </Layout>
           }
         />
         <Route
           path="/kundlimatching"
           element={
-            <Layout>
-              <KundliMatching />
+            <Layout
+              isBurgerMenuClicked={isBurgerMenuClicked}
+              setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+            >
+              <KundliMatching
+                isBurgerMenuClicked={isBurgerMenuClicked}
+                setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+              />
             </Layout>
           }
         />
         <Route
           path="/birthDetailsPage"
           element={
-            <Layout>
-              <BirthDetailsPage />
+            <Layout
+              isBurgerMenuClicked={isBurgerMenuClicked}
+              setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+            >
+              <BirthDetailsPage
+                isBurgerMenuClicked={isBurgerMenuClicked}
+                setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+              />
             </Layout>
           }
         />
         <Route
           path="/login"
           element={
-            <Layout>
-              <LoginPage />
+            <Layout
+              isLogin={true}
+              isBurgerMenuClicked={isBurgerMenuClicked}
+              setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+            >
+              <LoginPage
+                isBurgerMenuClicked={isBurgerMenuClicked}
+                setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+              />
             </Layout>
           }
         />
         <Route
           path="/allBlogs"
           element={
-            <Layout>
-              <AllBlogs />
+            <Layout
+              isBurgerMenuClicked={isBurgerMenuClicked}
+              setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+            >
+              <AllBlogs
+                isBurgerMenuClicked={isBurgerMenuClicked}
+                setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+              />
             </Layout>
           }
         />
         <Route
           path="/createBlog"
           element={
-            <Layout>
-              <CreateBlogPage />
+            <Layout
+              isBurgerMenuClicked={isBurgerMenuClicked}
+              setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+            >
+              <CreateBlogPage
+                isBurgerMenuClicked={isBurgerMenuClicked}
+                setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+              />
             </Layout>
           }
         />
         <Route
           path="/mainPage"
           element={
-            <Layout>
-              <MainPage />
+            <Layout
+              isBurgerMenuClicked={isBurgerMenuClicked}
+              setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+            >
+              <MainPage
+                isBurgerMenuClicked={isBurgerMenuClicked}
+                setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+              />
             </Layout>
           }
         />

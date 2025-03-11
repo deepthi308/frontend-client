@@ -7,8 +7,12 @@ import Blogs from "../blogs/Blogs";
 import AstrologersSection from "../../sections/astrologersSection/AstrologersSection";
 import FaqsSection from "../../sections/faqsSection/FaqsSection";
 import FooterSection from "../../sections/footerSection/FooterSection";
+import { ClipLoader } from "react-spinners";
 
-export default function HomePage() {
+export default function HomePage({ setIsBurgerMenuClicked }) {
+  useEffect(() => {
+    setIsBurgerMenuClicked(false);
+  }, [setIsBurgerMenuClicked]);
   const location = useLocation();
 
   useEffect(() => {
@@ -34,6 +38,16 @@ export default function HomePage() {
       });
     }
   }, [location]);
+
+  // if (loading) {
+  //   return (
+  //     <ClipLoader
+  //       style={{ height: "100vh", width: "100vw" }}
+  //       loading={loading}
+  //       size={50}
+  //     />
+  //   );
+  // }
 
   return (
     <main className="homePage">

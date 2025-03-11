@@ -1,9 +1,19 @@
+import { useEffect } from "react";
 import Navbar from "../components/navbar/Navbar";
 
-export default function Layout({ children }) {
+export default function Layout({
+  children,
+  isLogin,
+  isBurgerMenuClicked,
+  setIsBurgerMenuClicked,
+}) {
   return (
     <>
-      <Navbar />
+      <Navbar
+        isLogin={isLogin}
+        isBurgerMenuClicked={isBurgerMenuClicked}
+        setIsBurgerMenuClicked={setIsBurgerMenuClicked}
+      />
       {children}
     </>
   );

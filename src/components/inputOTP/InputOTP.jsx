@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./inputOTP.css";
 
-export default function InputOTP({ count, setCombinedOTP }) {
+export default function InputOTP({ count, setCombinedOTP, isValid }) {
   const [otp, setOtp] = useState(Array(count).fill(""));
   const inputRefs = useRef([]);
   console.log(inputRefs, otp);
@@ -52,21 +52,26 @@ export default function InputOTP({ count, setCombinedOTP }) {
   };
 
   return (
-    <section className="inputOTP">
-      <label>Enter OTP:</label>
-      <section className="OTPInputContainer">
-        {otp.map((value, index) => (
-          <input
-            key={index}
-            type="text"
-            value={value}
-            ref={(input) => (inputRefs.current[index] = input)}
-            onChange={(e) => handleChange(index, e)}
-            onClick={() => handleClick(index)}
-            onKeyDown={(e) => handleKeyDown(index, e)}
-          />
-        ))}
+    <>
+      <section className="inputOTP">
+        <div className="otp-group">
+          <label>Enter OTP:</label>
+          <section className="OTPInputContainer">
+            {otp.map((value, index) => (
+              <input
+                key={index}
+                type="text"
+                value={value}
+                ref={(input) => (inputRefs.current[index] = input)}
+                onChange={(e) => handleChange(index, e)}
+                onClick={() => handleClick(index)}
+                onKeyDown={(e) => handleKeyDown(index, e)}
+              />
+            ))}
+          </section>
+        </div>
+        <p className="otp-error">Incorrect OTP</p>
       </section>
-    </section>
+    </>
   );
 }

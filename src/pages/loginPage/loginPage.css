@@ -7,6 +7,15 @@
   height: calc(100vh - 60px);
 }
 
+.content {
+  opacity: 0;
+  transition: opacity 1s ease-in; /* Smooth fade-in transition */
+}
+
+.content.fade-in {
+  opacity: 1;
+}
+
 .container {
   display: flex;
 }
