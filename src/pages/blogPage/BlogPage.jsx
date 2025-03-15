@@ -225,7 +225,7 @@ export default function BlogPage() {
     } else {
       console.log("Web Share API is not supported in this browser.");
       // If Web Share API is not supported, fall back to the custom share modal
-      handleCustomShare();
+      // handleCustomShare();
     }
   };
 

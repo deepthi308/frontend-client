@@ -311,4 +311,10 @@ h3 {
   .blog-content {
     margin-bottom: 0px;
   }
+
+  .blog-comments-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
