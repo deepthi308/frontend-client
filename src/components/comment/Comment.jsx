@@ -69,6 +69,7 @@ export default function Comment({
       <section className="main-comment">
         <section className="main-comment-profile">
           <img
+            className="commenter-image"
             src={comment.image}
             alt="Profile Picture"
             width={65}

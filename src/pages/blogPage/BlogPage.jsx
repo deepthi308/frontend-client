@@ -357,7 +357,7 @@ export default function BlogPage() {
                       ? "Login to add comment..."
                       : "Add your comment here..."
                   }
-                  className="comment-inpu add-comment-box-textarea"
+                  className="comment-input add-comment-box-textarea"
                   disabled={!user.name ? true : false}
                   value={comment}
                   onChange={({ target }) => handleCommentChange(target)}

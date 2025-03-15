@@ -253,6 +253,10 @@ h3 {
     padding: 0px;
   }
 
+  .add-comment-button {
+    font-size: 11px;
+  }
+
   .blog-detail-icons {
     gap: 22px;
   }
@@ -316,5 +320,14 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .add-comment-box-textarea {
+    font-size: 12px;
+  }
+
+  .sort-buttons-container,
+  .comment-sorter {
+    font-size: 12px;
   }
 }
