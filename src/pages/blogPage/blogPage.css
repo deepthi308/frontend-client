@@ -253,8 +253,16 @@ h3 {
     padding: 0px;
   }
 
+  .blog-detail-icons {
+    gap: 22px;
+  }
+
   .blog-detail-icons .icon {
-    padding: 7px;
+    padding: 5px;
+  }
+
+  .blog-detail-icons p {
+    font-size: 15px;
   }
 
   .blog-content {
@@ -277,8 +285,10 @@ h3 {
 
   .blog-comments {
     align-self: center;
-    min-width: 300px;
-    border-radius: 0px;
+    width: 90%;
+    margin: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
   }
 
   p,
