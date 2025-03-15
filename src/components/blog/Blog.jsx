@@ -13,7 +13,8 @@ export default function Blog({ blog }) {
   const navigate = useNavigate();
 
   const handleDisplayBlogDetails = (title) => {
-    navigate(`/blog/${title}`);
+    const formattedTitle = title.replace(/\s+/g, "-");
+    navigate(`/blog/${formattedTitle}`);
   };
 
   return (

@@ -31,6 +31,7 @@ const userSlice = createSlice({
   initialState: initialState,
   reducers: {
     signIn: (state, action) => {
+      console.log(action);
       state.user = action.payload;
     },
     signOut: (state, action) => {

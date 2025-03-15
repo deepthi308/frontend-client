@@ -7,6 +7,7 @@
   gap: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   /* background-color: red; */
 }
 
@@ -14,16 +15,83 @@
   margin: 10px;
 }
 
+.blog-icon-container {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.blog-icon-container p {
+  font-size: 17px;
+}
+
+.blog-detail-container {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  /* background-color: red; */
+  width: 98%;
+  justify-content: center;
+}
+
 .blog-content {
   /* padding: 20px; */
   /* height: 300px; */
-  width: 96%;
+  flex: 0.7;
+  width: 100%;
   max-width: 1000px;
   background-color: rgba(167, 32, 5, 0.12);
   padding: 30px;
   border-radius: 10px;
   box-shadow: inset 0px 0px 2px #a7200584;
   margin-bottom: 20px;
+}
+
+.blog-content li {
+  margin-left: 28px;
+  /* list-style-type: none; */
+}
+
+.blog-comments {
+  flex: 0.3;
+  max-width: 500px;
+  background-color: rgba(167, 32, 5, 0.12);
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 2px #a7200584;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  background-color: rgba(167, 32, 5, 0.12);
+}
+
+.add-comment-box {
+  /* background-color: red; */
+  min-height: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.comment-sub-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: black;
+}
+
+.add-comment-box textarea {
+  width: 100%;
+  min-height: 25px;
+  background-color: rgba(167, 32, 5, 0.12);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 2px #a7200584;
+  padding: 10px;
+  resize: none;
 }
 
 .ql-align-center {
@@ -39,9 +107,159 @@
   border-radius: 10px;
 }
 
-@media (min-width: 100px) and (max-width: 500px) {
+.blog-detail-icons {
+  display: flex;
+  gap: 50px;
+  /* margin-bottom: 20px; */
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-detail-icons .icon {
+  background-color: #a72005de;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-comment-button {
+  background-color: #a72005de;
+  padding: 3px 5px;
+  color: #d9d9d9;
+  border-radius: 3px;
+  font-size: 12.5px;
+}
+
+.add-comment-box textarea:disabled {
+  cursor: not-allowed;
+}
+
+.add-comment-button:disabled {
+  cursor: not-allowed;
+}
+
+p,
+li {
+  font-size: 14px;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 17px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+.sort-buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.blog-comments-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-sorter {
+  outline: none;
+  font-size: 12.5px;
+  padding: 0px 6px;
+  border-radius: 3px;
+  border: 2px solid #a72005;
+  background-color: rgba(167, 32, 5, 0.12);
+  color: black;
+  width: 127; /* Set width of the dropdown */
+  height: 29px;
+  cursor: pointer; /* Set cursor to pointer for better UX */
+  border-radius: 4px; /* Add rounded corners */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.add-comment-box-textarea:focus {
+  border: 1px solid #a72005;
+}
+
+@media (min-width: 500px) and (max-width: 1200px) {
+  .blog-detail-container {
+    flex-direction: column;
+  }
+
+  .blog-detail-icons .icon {
+    padding: 7px;
+  }
+
   .blog-content {
     width: 100%;
+    border-radius: 10px;
+  }
+
+  .blogPage {
+    gap: 10px;
+  }
+
+  .blog-content {
+    border-radius: 10px;
+    box-shadow: none;
+    flex-direction: column;
+  }
+
+  .blog-detail-title {
+    text-align: center;
+  }
+
+  .blog-comments {
+    align-self: center;
+    min-width: 500px;
+  }
+
+  p,
+  li {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 17px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  .blog-content {
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 500px) {
+  .blog-detail-container {
+    flex-direction: column;
+    width: 100%;
+    padding: 0px;
+  }
+
+  .blog-detail-icons .icon {
+    padding: 7px;
+  }
+
+  .blog-content {
+    width: 100%;
+    border-radius: 10px;
   }
 
   .blogPage {
@@ -55,6 +273,12 @@
 
   .blog-detail-title {
     text-align: center;
+  }
+
+  .blog-comments {
+    align-self: center;
+    min-width: 300px;
+    border-radius: 0px;
   }
 
   p,

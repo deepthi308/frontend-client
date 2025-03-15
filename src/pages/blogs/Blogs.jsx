@@ -27,7 +27,7 @@ export default function Blogs() {
       </section>
       <section className="blogs-bottom">
         {blogs.map((blog) => {
-          return <Blog key={blog.id} blog={blog} />;
+          return <Blog key={blog.title} blog={blog} />;
         })}
       </section>
       <Link to={"/allBlogs"} className="blogs-more">

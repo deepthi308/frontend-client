@@ -60,7 +60,7 @@ export default function InputOTP({ count, setCombinedOTP, isValid }) {
             {otp.map((value, index) => (
               <input
                 key={index}
-                type="text"
+                type="number"
                 value={value}
                 ref={(input) => (inputRefs.current[index] = input)}
                 onChange={(e) => handleChange(index, e)}

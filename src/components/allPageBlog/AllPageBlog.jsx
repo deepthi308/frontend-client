@@ -11,7 +11,8 @@ export default function AllPageBlog({ id, title, author, date, image }) {
   const navigate = useNavigate();
 
   const handleDisplayBlogDetails = (title) => {
-    navigate(`/blog/${title}`);
+    const formattedTitle = title.replace(/\s+/g, "-");
+    navigate(`/blog/${formattedTitle}`);
   };
 
   return (

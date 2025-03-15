@@ -11,9 +11,13 @@ import CreateBlogPage from "./pages/createBlogPage.jsx/CreateBlogPage.jsx";
 import MainPage from "./pages/mainPage/MainPage.jsx";
 import { useState } from "react";
 import BlogPage from "./pages/blogPage/BlogPage.jsx";
+import useLocalStorage from "./hooks/useLocalStorage.js";
 
 function App() {
   const [isBurgerMenuClicked, setIsBurgerMenuClicked] = useState(false);
+  const { getItem } = useLocalStorage();
+  const [signedIn, setSignedIn] = useState(getItem("user", "") ? true : false);
+  console.log(signedIn);
 
   return (
     <Router>
@@ -22,6 +26,8 @@ function App() {
           path="/"
           element={
             <Layout
+              signedIn={signedIn}
+              setSignedIn={setSignedIn}
               isBurgerMenuClicked={isBurgerMenuClicked}
               setIsBurgerMenuClicked={setIsBurgerMenuClicked}
             >
@@ -36,6 +42,8 @@ function App() {
           path="/freekundli"
           element={
             <Layout
+              signedIn={signedIn}
+              setSignedIn={setSignedIn}
               isBurgerMenuClicked={isBurgerMenuClicked}
               setIsBurgerMenuClicked={setIsBurgerMenuClicked}
             >
@@ -50,6 +58,8 @@ function App() {
           path="/kundlimatching"
           element={
             <Layout
+              signedIn={signedIn}
+              setSignedIn={setSignedIn}
               isBurgerMenuClicked={isBurgerMenuClicked}
               setIsBurgerMenuClicked={setIsBurgerMenuClicked}
             >
@@ -64,6 +74,8 @@ function App() {
           path="/birthDetailsPage"
           element={
             <Layout
+              signedIn={signedIn}
+              setSignedIn={setSignedIn}
               isBurgerMenuClicked={isBurgerMenuClicked}
               setIsBurgerMenuClicked={setIsBurgerMenuClicked}
             >
@@ -78,7 +90,8 @@ function App() {
           path="/login"
           element={
             <Layout
-              isLogin={true}
+              signedIn={signedIn}
+              setSignedIn={setSignedIn}
               isBurgerMenuClicked={isBurgerMenuClicked}
               setIsBurgerMenuClicked={setIsBurgerMenuClicked}
             >
@@ -93,6 +106,8 @@ function App() {
           path="/allBlogs"
           element={
             <Layout
+              signedIn={signedIn}
+              setSignedIn={setSignedIn}
               isBurgerMenuClicked={isBurgerMenuClicked}
               setIsBurgerMenuClicked={setIsBurgerMenuClicked}
             >
@@ -107,6 +122,8 @@ function App() {
           path="/createBlog"
           element={
             <Layout
+              signedIn={signedIn}
+              setSignedIn={setSignedIn}
               isBurgerMenuClicked={isBurgerMenuClicked}
               setIsBurgerMenuClicked={setIsBurgerMenuClicked}
             >
@@ -121,7 +138,8 @@ function App() {
           path="/mainPage"
           element={
             <Layout
-              isSignOut={true}
+              signedIn={signedIn}
+              setSignedIn={setSignedIn}
               isBurgerMenuClicked={isBurgerMenuClicked}
               setIsBurgerMenuClicked={setIsBurgerMenuClicked}
             >
@@ -136,7 +154,8 @@ function App() {
           path="/blog/:title"
           element={
             <Layout
-              isSignOut={true}
+              signedIn={signedIn}
+              setSignedIn={setSignedIn}
               isBurgerMenuClicked={isBurgerMenuClicked}
               setIsBurgerMenuClicked={setIsBurgerMenuClicked}
             >

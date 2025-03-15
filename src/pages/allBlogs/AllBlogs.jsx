@@ -13,10 +13,11 @@ export default function AllBlogs() {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    window.scrollTo({
-      top: document.getElementById("allBlogs").offsetTop,
-      behavior: "smooth",
-    });
+    // window.scrollTo({
+    //   top: document.getElementById("allBlogs").offsetTop,
+    //   behavior: "smooth",
+    // });
+    window.scrollTo(0, 0);
 
     async function getAllBlogs() {
       axios.get("/astro-mandeep/api/v1/get-blogs").then((res) => {

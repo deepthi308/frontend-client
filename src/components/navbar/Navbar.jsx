@@ -15,6 +15,8 @@ export default function Navbar({
   isBurgerMenuClicked,
   setIsBurgerMenuClicked,
   isSignOut,
+  signedIn,
+  setSignedIn,
 }) {
   console.log(isSignOut);
   const navigate = useNavigate();
@@ -92,8 +94,8 @@ export default function Navbar({
             <Link to={"/#faqs"}>Faqs</Link>
           </li>
         </ul>
-        {!isLogin && !isSignOut && <button onClick={handleLogin}>Login</button>}
-        {isSignOut && <button onClick={handleLogout}>Logout</button>}
+        {!signedIn && <button onClick={handleLogin}>Login</button>}
+        {signedIn && <button onClick={handleLogout}>Logout</button>}
       </section>
 
       <section className="small-device-nav-links">
@@ -169,12 +171,12 @@ export default function Navbar({
               <li className="link2" onClick={() => handleNavigation("/#faqs")}>
                 <Link>Faqs</Link>
               </li>
-              {!isLogin && !isSignOut && (
+              {!signedIn && (
                 <li className="link2" onClick={() => handleLogin()}>
                   <Link>Login</Link>
                 </li>
               )}
-              {isSignOut && (
+              {signedIn && (
                 <li className="link2" onClick={() => handleLogout()}>
                   <Link>Logout</Link>
                 </li>

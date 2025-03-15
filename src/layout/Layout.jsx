@@ -7,13 +7,17 @@ export default function Layout({
   isBurgerMenuClicked,
   setIsBurgerMenuClicked,
   isSignOut,
+  signedIn,
+  setSignedIn,
 }) {
-  console.log(isSignOut, isLogin);
+  console.log(signedIn);
   return (
     <>
       <Navbar
         isLogin={isLogin}
         isSignOut={isSignOut}
+        signedIn={signedIn}
+        setSignedIn={setSignedIn}
         isBurgerMenuClicked={isBurgerMenuClicked}
         setIsBurgerMenuClicked={setIsBurgerMenuClicked}
       />
